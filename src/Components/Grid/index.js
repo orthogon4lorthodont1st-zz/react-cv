@@ -3,7 +3,12 @@ import { Column, Row } from 'simple-flexbox';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 
+import Profile from '../Modals/Profile';
 import './ImageBox.css';
+
+const modalComponents = {
+  Profile: <Profile />,
+};
 
 const styles = {
   container: {
@@ -55,17 +60,12 @@ export default class Grid extends React.Component {
     };
   }
 
-  async onMouseEnterHandler(title) {
-    await this.setState({
-      title,
-    });
-    console.log('title', title);
-  }
-
-  handleOopen() {
+  handleOpen(title) {
     this.setState({
       open: true,
+      title,
     });
+    this.showDialog();
   }
 
   handleClose() {
@@ -74,13 +74,16 @@ export default class Grid extends React.Component {
     });
   }
 
-  showModal() {
+  showDialog() {
     return (
       <Dialog
-        title={this.state.title}
         open={this.state.open}
-        onRequestClose={this.handleClose}
-      />
+        onRequestClose={() => this.handleClose()}
+        autoScrollBodyContent={true}
+        overlayStyle={{ opacity: 0.4 }}
+      >
+        {modalComponents[this.state.title]}
+      </Dialog>
     );
   }
 
@@ -89,39 +92,25 @@ export default class Grid extends React.Component {
       <Column style={styles.container}>
         {tiles.map(tile => (
           <Row key={tile.key} style={styles.row} vertical="center">
-            <div
-              onMouseEnter={() => this.onMouseEnterHandler(tile.c1name)}
-              style={{ paddingRight: 2.5 }}
-              className="ImageBox"
-            >
+            <div style={{ paddingRight: 2.5 }} className="ImageBox">
               <img className="image" alt={1} src={tile.c1src} />
               <div className="middle">
                 <RaisedButton
-                  buttonStyle={{
-                    backgroundColor: '#37474F',
-                  }}
                   label={tile.c1name}
-                  labelColor="#fff"
-                  onClick={() => this.showModal(tile.title)}
+                  onClick={() => this.handleOpen(tile.c1name)}
                 />
+                {this.showDialog()}
               </div>
             </div>
 
-            <div
-              onMouseEnter={() => this.onMouseEnterHandler(tile.c2name)}
-              style={{ paddingLeft: 2.5 }}
-              className="ImageBox"
-            >
+            <div style={{ paddingLeft: 2.5 }} className="ImageBox">
               <img className="image" alt={1} src={tile.c2src} />
               <div className="middle">
                 <RaisedButton
-                  buttonStyle={{
-                    backgroundColor: '#37474F',
-                  }}
                   label={tile.c2name}
-                  labelColor="#fff"
-                  onClick={() => this.showModal()}
+                  onClick={() => this.handleOpen(tile.c2name)}
                 />
+                {this.showDialog()}
               </div>
             </div>
           </Row>

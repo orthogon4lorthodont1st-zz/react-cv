@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400|Playfair+Display:400,700,400italic|Libre+Baskerville:400,700,400italic|Muli:300,400|Open+Sans:400,300,700|Oswald:400,700|Raleway:400,100,300,700|Montserrat:400,700|Merriweather:400,300,300italic,400italic,700|Bree+Serif|Vollkorn:400italic,400,700|Abril+Fatface|Cardo:400,400italic);
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Basically just a bunch of typeface classes, some helper classes(letter-spacing, font-weight, etc.), decorative classes(line-on-headers, double-lines, etc). Three types of bg, image, gradient and solid color. I do this for testing headings/hero-image typography. Now there are ten presets here, but you can mix everything. I know that this brings to classivitis, but I still didn't dwelved into Saas, it is next on my learning roadmap, but I will create a fork soon with Saas and variables. */
+
+/* ==== Font sizes(based on Typeplate's scale) ==== */
+html {
+  font: normal 112.5%/1.65 serif; /* base font size 18px with 1.65 line-height */
+  -moz-font-feature-settings: 'liga=1, dlig=1'; /* common and discretionary ligatures */
+  -ms-font-feature-settings: 'liga', 'dlig';
+  -webkit-font-feature-settings: 'liga', 'dlig';
+  -o-font-feature-settings: 'liga', 'dlig';
+  font-feature-settings: 'liga', 'dlig';
+}
+h1 {
+  line-height: 1;
+  margin-top: 0;
+  color: #fff;
+  display: inline-block;
+  position: relative;
+}
+
+.gigantic {
+  font-size: 11rem;
+}
+
+.montserrat {
+  font-family: 'Montserrat';
+}
+
+/* ==== Weights, styles, letterspacing, etc. ==== */
+
+.bold {
+  font-weight: 700;
+}
+
+.ls-xlarge {
+  letter-spacing: 12px;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-overlay:before {
+  content: attr(data-text);
+  z-index: 99;
+  width: 98%;
+  height: 50px;
+  background-color: hsla(0, 0%, 0%, 0.6);
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 50px;
+  text-align: center;
+  color: #f0ad00;
+  font-family: 'bree serif';
+  font-style: normal;
+  font-size: 1.3rem;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+}
+
+/* ==== General styles ==== */
+section {
+  height: 600px;
+  padding: 3rem 0;
+  position: relative;
+}
+.wrapper {
+  max-width: 53.33rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  transform: translateY(-50%);
+  top: 50%;
+  text-align: center;
+}
+.wrapper.large-wrap {
+  max-width: 100%;
+}
+
+section:nth-of-type(1) {
+  background-image: url('background.png');
+}
+
+section:before {
+  content: attr(data-description);
+  font-size: 0.9rem;
+  font-family: 'oswald';
+  color: #fff;
+  position: absolute;
+  z-index: 20;
+  left: 2rem;
+  top: 2rem;
+}
+
+/* Media queries */
+@media screen and (min-width: 1440px) {
+  section {
+    height: 700px;
+  }
+}
