@@ -42,7 +42,6 @@ export default class ProfileModal extends React.Component {
           <Typing
             key={this.state.key.toString()}
             loop={true}
-            speed={40}
             onFinishedTyping={() => this.pause()}
           >
             <span style={{ color: '#b294bb' }}>
