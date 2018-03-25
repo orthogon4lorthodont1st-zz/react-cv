@@ -28,11 +28,5 @@
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
-}
-
-.text {
-  background-color: #37474f;
-  color: white;
-  font-size: 16px;
-  padding: 16px 32px;
+  width: 98%;
 }
