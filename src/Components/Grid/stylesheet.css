@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
 .ImageBox {
   transition: 0.5s ease;
   position: relative;
@@ -28,5 +30,4 @@
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
-  width: 98%;
 }

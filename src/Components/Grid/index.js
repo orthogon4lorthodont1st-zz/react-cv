@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 
 import Profile from '../Modals/Profile';
-import './ImageBox.css';
+import './stylesheet.css';
 
 const modalComponents = {
   Profile: <Profile />,
@@ -96,6 +96,12 @@ export default class Grid extends React.Component {
               <img className="image" alt={1} src={tile.c1src} />
               <div className="middle">
                 <RaisedButton
+                  overlayStyle={{ backgroundColor: '#808080' }}
+                  labelColor="#fff"
+                  labelStyle={{
+                    fontFamily: 'Montserrat',
+                    fontWeight: 'bold',
+                  }}
                   label={tile.c1name}
                   onClick={() => this.handleOpen(tile.c1name)}
                 />
@@ -107,6 +113,9 @@ export default class Grid extends React.Component {
               <img className="image" alt={1} src={tile.c2src} />
               <div className="middle">
                 <RaisedButton
+                  overlayStyle={{ backgroundColor: '#808080' }}
+                  labelColor="#fff"
+                  labelStyle={{ fontFamily: 'Montserrat', fontWeight: 'bold' }}
                   label={tile.c2name}
                   onClick={() => this.handleOpen(tile.c2name)}
                 />
