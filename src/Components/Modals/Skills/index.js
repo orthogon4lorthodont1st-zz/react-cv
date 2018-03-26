@@ -1,15 +1,7 @@
 import React from 'react';
 import { Line } from 'rc-progress';
-import './stylesheet.css';
 
 const styles = {
-  container: {
-    backgroundColor: '#1d1f21',
-    paddingRight: 20,
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingLeft: 10,
-  },
   label: {
     fontFamily: 'Montserrat',
     fontWeight: 'bold',
@@ -46,12 +38,12 @@ const skills = [
   },
   {
     stateName: 'react',
-    name: 'REACT',
+    name: 'REACT JS & NATIVE',
     percent: 75,
   },
   {
     stateName: 'html',
-    name: 'HTML & CSS',
+    name: 'JQUERY & HTML & CSS',
     percent: 70,
   },
 ];

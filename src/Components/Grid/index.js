@@ -5,11 +5,13 @@ import Dialog from 'material-ui/Dialog';
 
 import Profile from '../Modals/Profile';
 import Skills from '../Modals/Skills';
+import Employment from '../Modals/Employment';
 import './stylesheet.css';
 
 const modalComponents = {
   Profile: <Profile />,
   Skills: <Skills />,
+  Employment: <Employment />,
 };
 
 const styles = {
@@ -83,6 +85,8 @@ export default class Grid extends React.Component {
         onRequestClose={() => this.handleClose()}
         autoScrollBodyContent={true}
         overlayStyle={{ opacity: 0.4 }}
+        bodyStyle={{ backgroundColor: '#1d1f21', borderColor: '#000' }}
+        fullScreen={true}
       >
         {modalComponents[this.state.title]}
       </Dialog>
