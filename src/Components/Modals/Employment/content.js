@@ -5,7 +5,7 @@ const Content = {
     services`,
   apollo: `APOLLO is a mobile first cryptocurrency wallet provider that allows
            the buying, selling and exchange of a select few currencies. I currently work
-           as a full stack engineer developing with product further.`,
+           as a full stack engineer developing the product further.`,
 };
 
 export default Content;
