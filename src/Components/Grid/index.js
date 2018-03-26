@@ -4,10 +4,12 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 
 import Profile from '../Modals/Profile';
+import Skills from '../Modals/Skills';
 import './stylesheet.css';
 
 const modalComponents = {
   Profile: <Profile />,
+  Skills: <Skills />,
 };
 
 const styles = {

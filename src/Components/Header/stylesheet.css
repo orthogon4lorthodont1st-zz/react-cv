@@ -25,6 +25,8 @@ h1 {
   margin-top: 0;
   color: #fff;
   display: inline-block;
+  font-weight: bold;
+  font-size: 200;
   position: relative;
 }
 
@@ -67,8 +69,8 @@ h1 {
   color: #f0ad00;
   font-family: 'bree serif';
   font-style: normal;
-  font-size: 1.3rem;
-  letter-spacing: 0;
+  font-size: 3rem;
+  font-weight: bold;
   text-transform: none;
   font-weight: 400;
 }
