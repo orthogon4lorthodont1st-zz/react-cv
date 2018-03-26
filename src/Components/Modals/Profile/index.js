@@ -56,7 +56,9 @@ export default class ProfileModal extends React.Component {
               <span style={styles.numbers}>4</span>
               {space}email: {"'"}rafiq@hodl.vc{"'"}, <br />
               <span style={styles.numbers}>5</span>
-              {space}age: 25, <br />
+              {space}age: 24, <br />
+              <Typing.Backspace count={5} delay={2} />
+              25, <br />
               <span style={styles.numbers}>6</span>
               {space}profession: {"'"}Software Engineer{"'"}
               <br />

@@ -36,22 +36,17 @@ const skills = [
   },
   {
     stateName: 'pg',
-    name: 'POSTGRES',
+    name: 'POSTGRESQL',
     percent: 90,
   },
   {
     stateName: 'rethink',
-    name: 'RETHINK DB',
+    name: 'RETHINKDB',
     percent: 80,
   },
   {
-    stateName: 'rn',
-    name: 'REACT NATIVE',
-    percent: 75,
-  },
-  {
-    stateName: 'rjs',
-    name: 'REACT JS',
+    stateName: 'react',
+    name: 'REACT',
     percent: 75,
   },
   {
@@ -59,6 +54,9 @@ const skills = [
     name: 'HTML & CSS',
     percent: 70,
   },
+];
+
+const hobby = [
   {
     stateName: 'cpp',
     name: 'C++',
@@ -66,7 +64,7 @@ const skills = [
   },
   {
     stateName: 'linux',
-    name: 'LINUX ARCH/KALI/UBUNTU',
+    name: 'ARCH & KALI',
     percent: 50,
   },
   {
@@ -83,18 +81,18 @@ export default class SkillsModel extends React.Component {
       node: 0,
       pg: 0,
       rethink: 0,
-      rn: 0,
-      rjs: 0,
+      react: 0,
       html: 0,
       cpp: 0,
       linux: 0,
       bash: 0,
     };
-    this.increase = this.increase.bind(this);
+    this.increasePro = this.increasePro.bind(this);
   }
 
   componentDidMount() {
-    this.increase(0);
+    this.increasePro(0, skills);
+    this.increasePro(0, hobby);
   }
 
   /**
@@ -102,33 +100,46 @@ export default class SkillsModel extends React.Component {
    *
    * @param {Number} i The skills array value
    */
-  async increase(i) {
+
+  async increasePro(i, skillList) {
     let j = i;
 
     // return when we reach the end of the array
-    if (j > skills.length - 1) {
+    if (j > skillList.length - 1) {
       return;
     }
 
     const newState = {};
-    const percent = this.state[skills[j].stateName] + 3;
-    newState[skills[j].stateName] = percent;
+    const percent = this.state[skillList[j].stateName] + 3;
+    newState[skillList[j].stateName] = percent;
 
     await this.setState(newState);
 
     // once percentage bar is full move onto next skill
-    if (this.state[skills[i].stateName] + 3 >= skills[i].percent) {
+    if (this.state[skillList[i].stateName] + 3 >= skillList[i].percent) {
       j += 1;
     }
 
-    setTimeout(() => this.increase(j), 1);
+    setTimeout(() => this.increasePro(j, skillList), 1);
   }
 
   render() {
     return (
       <div style={styles.container}>
-        <div style={styles.section}>SKILLS:</div>
+        <div style={styles.section}>PROFESSIONAL:</div>
         {skills.map(skill => (
+          <div style={styles.skills}>
+            <span style={styles.label}>{skill.name}</span>
+            <Line
+              strokeColor="#b294bb"
+              strokeWidth="1"
+              trailColor="#ffffff"
+              percent={this.state[skill.stateName]}
+            />
+          </div>
+        ))}
+        <div style={styles.section}>HOBBY:</div>
+        {hobby.map(skill => (
           <div style={styles.skills}>
             <span style={styles.label}>{skill.name}</span>
             <Line
