@@ -39,12 +39,12 @@ const skills = [
   {
     stateName: 'react',
     name: 'REACT JS & NATIVE',
-    percent: 75,
+    percent: 65,
   },
   {
     stateName: 'html',
     name: 'JQUERY & HTML & CSS',
-    percent: 70,
+    percent: 60,
   },
 ];
 
@@ -52,7 +52,7 @@ const hobby = [
   {
     stateName: 'cpp',
     name: 'C++',
-    percent: 60,
+    percent: 50,
   },
   {
     stateName: 'linux',
@@ -117,7 +117,7 @@ export default class SkillsModel extends React.Component {
 
   render() {
     return (
-      <div style={styles.container}>
+      <div>
         <div style={styles.section}>PROFESSIONAL:</div>
         {skills.map(skill => (
           <div style={styles.skills}>

@@ -6,12 +6,16 @@ import Dialog from 'material-ui/Dialog';
 import Profile from '../Modals/Profile';
 import Skills from '../Modals/Skills';
 import Employment from '../Modals/Employment';
+import Education from '../Modals/Education';
+import Social from '../Modals/Social';
 import './stylesheet.css';
 
 const modalComponents = {
   Profile: <Profile />,
   Skills: <Skills />,
   Employment: <Employment />,
+  Education: <Education />,
+  Social: <Social />,
 };
 
 const styles = {

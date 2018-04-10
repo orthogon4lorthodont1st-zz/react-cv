@@ -8,7 +8,7 @@ const styles = {
   projectsContainer: {
     paddingBottom: 40,
   },
-  employer: {
+  title: {
     fontFamily: 'Montserrat',
     fontWeight: 'bold',
     fontSize: 30,
@@ -42,27 +42,28 @@ const styles = {
 
 const data = [
   {
-    employer: 'SAVEABLE LIMITED',
-    period: 'JUNE 2017 - PRESENT ',
-    projects: [
+    title: 'EDUCATION',
+    period: 'ENGLAND, \u00A0 2010 - 2016',
+    periods: [
       {
-        name: 'OINKY',
-        tech: 'NODE.JS, \u00A0 RETHINKDB, \u00A0 AWS',
-        role:
-          'DESIGN AND IMPLEMENT SAVING ALGORITHM & ASSIST WITH CODE MAINTENANCE',
-        description: Content.oinky,
+        display: 'READ',
+        name: 'UNIVERSITY OF SHEFFIELD',
+        read: 'THEORETICAL PHYSICS,\u00A0 MASTERS',
+        result: 'CLASS ONE HONOURS',
+        description: Content.uni,
       },
       {
-        name: 'APOLLO',
-        role: 'ASSIST WITH BUILD OF API & APP FOR BLOCKCHAIN WALLET SERVICES',
-        tech: 'NODE.JS, \u00A0 REACT NATIVE, \u00A0 POSTGRESQL, \u00A0 HEROKU',
-        description: Content.apollo,
+        display: 'STUDIED',
+        name: 'EALING,\u00A0 HAMMERSMITH AND WEST LONDON COLLEGE',
+        read: 'MATHS PHYSICS AND MORE MATHS',
+        result: 'A,\u00A0 A and one more A ',
+        description: Content.college,
       },
     ],
   },
 ];
 
-export default class EmploymentModal extends React.Component {
+export default class EducationModal extends React.Component {
   pause() {
     setTimeout(() => {}, 1500);
     this.setState({
@@ -73,8 +74,8 @@ export default class EmploymentModal extends React.Component {
   renderOinky() {
     return data.map(contents => (
       <div>
-        <div style={styles.employer}>
-          {contents.employer}
+        <div style={styles.title}>
+          {contents.title}
           {space}
           <span className="animated fadeInDownBig" style={styles.period}>
             {contents.period}
@@ -82,24 +83,23 @@ export default class EmploymentModal extends React.Component {
         </div>
         <hr />
 
-        {contents.projects.map(project => (
+        {contents.periods.map(period => (
           <div style={styles.projectsContainer}>
-            <div style={styles.projectName} className="animated fadeInRight">
-              {project.name}
+            <div style={styles.projectName} className="animated fadeInDown">
+              {period.name}
             </div>
-            <div
-              className="animated fadeInRight"
-              style={styles.projectSections}
-            >
-              <u style={{ fontWeight: 'bold', paddingRight: 12 }}>TECH</u>{' '}
-              {project.tech}
+            <div className="animated fadeInUp" style={styles.projectSections}>
+              <u style={{ fontWeight: 'bold', paddingRight: 12 }}>
+                {period.display}
+              </u>{' '}
+              {period.read}
             </div>
-            <div className="animated fadeInLeft" style={styles.projectSections}>
-              <u style={{ fontWeight: 'bold', paddingRight: 12 }}>ROLE</u>{' '}
-              {project.role}
+            <div className="animated fadeInDown" style={styles.projectSections}>
+              <u style={{ fontWeight: 'bold', paddingRight: 12 }}>RESULT</u>{' '}
+              {period.result}
             </div>
-            <div style={styles.text} className="animated fadeInLeft">
-              {project.description}
+            <div style={styles.text} className="animated fadeInUp">
+              {period.description}
             </div>
           </div>
         ))}
