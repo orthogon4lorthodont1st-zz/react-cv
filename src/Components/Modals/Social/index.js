@@ -4,7 +4,8 @@ const styles = {
   text: {
     fontFamily: 'Montserrat',
     fontSize: 16,
-    color: '#de935f',
+    color: '#fff',
+    fontWeight: 'bold',
   },
 };
 export default class SocialModal extends React.Component {
@@ -15,8 +16,15 @@ export default class SocialModal extends React.Component {
 
   render() {
     return (
-      <div>
-        <a href=''>click me!</a>
+      <div style={styles.text}>
+        <a
+          style={{ 'text-decoration': 'none' }}
+          href="https://github.com/orthogon4lorthodont1st"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <span style={styles.text}>GIT</span>
+        </a>
       </div>
     );
   }
